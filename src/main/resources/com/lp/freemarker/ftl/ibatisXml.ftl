@@ -18,7 +18,7 @@
   	</#list>
   </sql>
 <#if isCreateMoveSql>
-<#--Éú³É¶¯Ì¬sql-->
+<#--ç”ŸæˆåŠ¨æ€sql-->
   <select id="selectBySelective" parameterType="${ibatisEntityPackagePath}.${ibatisEntityName}" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
@@ -100,7 +100,7 @@
     </#list>
     </trim>
   </delete>
-<#--¸ù¾ÝË÷Òý£¬Éú³É select update delete -->
+<#--æ ¹æ®ç´¢å¼•ï¼Œç”Ÿæˆ select update delete -->
 <#list methodList?if_exists as method>
   <select id="selectBy${method.methodNameSuffix}" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -129,7 +129,7 @@
     update ${tableName} set
     	<trim suffixOverrides="," >
     	<#list listMap?if_exists as column>
-    	<#--Èç¹û³öÏÖÔÚwhereÌõ¼þÖÐµÄ×Ö¶Î£¬²»ÄÜ³öÏÖÔÚ set ÖÐ -->
+    	<#--å¦‚æžœå‡ºçŽ°åœ¨whereæ¡ä»¶ä¸­çš„å­—æ®µï¼Œä¸èƒ½å‡ºçŽ°åœ¨ set ä¸­ -->
     	<#assign isFilterParamColumn = "true" />
     	<#if column.COLUMN?lower_case == "create_time" || column.COLUMN?lower_case == "createtime" || column.COLUMN?lower_case == "created_time" || column.COLUMN?lower_case == "createdtime">
     	<#assign isFilterParamColumn = "false" />
@@ -167,7 +167,7 @@
 </#list>
 
 <#else>
-<#--²»Éú³É¶¯Ì¬sql-->
+<#--ä¸ç”ŸæˆåŠ¨æ€sql-->
     <insert id="insertSelective" parameterType="${ibatisEntityPackagePath}.${ibatisEntityName}" useGeneratedKeys="true" keyProperty="${primaryKeyColumn}" >
 	    insert into ${tableName} (<include refid="Base_Column_List" />)
 	    values
@@ -177,7 +177,7 @@
 	    	</#list>
 	    </trim>
   </insert>
-	<#--²»Éú³É¶¯Ì¬sql-->
+	<#--ä¸ç”ŸæˆåŠ¨æ€sql-->
 	<#list methodList?if_exists as method>
 	<select id="selectBy${method.methodNameSuffix}" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
