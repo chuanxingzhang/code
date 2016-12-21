@@ -68,8 +68,6 @@ public class CreateIbatisXmlFileUtil {
 		//
 		List<Map<String,Object>> methodList = CreateIbatisFile.getMethodList(tableInfo);
 		rootMap.put("methodList", methodList);//
-		//
-		rootMap.put("isCreateMoveSql", false);
 
 		FileUtil.writeIbatisFile(template, rootMap, UtilLp.getIbatitsDaoClassName(Config.entityName)+"Mapper.xml", Config.mapperPackage);//ibatisEntityName
 	}

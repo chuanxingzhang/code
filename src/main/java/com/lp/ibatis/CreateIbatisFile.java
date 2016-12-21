@@ -90,7 +90,7 @@ public class CreateIbatisFile {
 			//方法参数list
 			List<Map<String,Object>> paramList = new ArrayList<Map<String,Object>>();
 			for(int j=0; j<tableInfoCopy2.size();) {
-				if(columnInfo.getIndexName().equals( tableInfoCopy2.get(j).getIndexName() )) {//
+				if("PRI".equals(tableInfoCopy2.get(j).getColumnKey())) {
 					Map<String,Object> paramMap = new HashMap<String, Object>();
 					paramMap.put("paramName", UtilLp.columnNameToHumpStr(tableInfoCopy2.get(j).getColumnName()));//参数名称
 					paramMap.put("paramType", UtilLp.getFieldType(tableInfoCopy2.get(j).getDataType()).getJavaDataType());//参数数据类型
@@ -200,10 +200,10 @@ public class CreateIbatisFile {
 			xmlMap.put("JDBCTYPE", UtilLp.getFieldType(dataType).getIbatisJdbcType());
 			xmlMap.put("IS_PRIMARYKEY", isPrimarykey);//是否是 唯一索引
 
-			xmlMap.put("isOrderByColumn", UtilLp.getIsOrderByColumn(columnName));//
-			xmlMap.put("isOrderByColumnDesc", UtilLp.getIsOrderByColumn(columnName) + "Desc");//true 倒序, false 正序
-
-			xmlMap.put("isGroupByColumn", UtilLp.getIsGroupByColumn(columnName));//
+//			xmlMap.put("isOrderByColumn", UtilLp.getIsOrderByColumn(columnName));//
+//			xmlMap.put("isOrderByColumnDesc", UtilLp.getIsOrderByColumn(columnName) + "Desc");//true 倒序, false 正序
+//
+//			xmlMap.put("isGroupByColumn", UtilLp.getIsGroupByColumn(columnName));//
 
 			xmlMap.put("fieldExplain", columnCom);//字段说明
 			listMap.add(xmlMap);

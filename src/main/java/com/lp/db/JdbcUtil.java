@@ -52,16 +52,4 @@ public class JdbcUtil {
 		}
 		return openConn;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

@@ -27,7 +27,7 @@ public class ${className} implements ${interfaceNameService}{
 	}
 
 <#if isCreateMoveSql>
-	<#--Éú³É¶¯Ì¬sql-->
+	<#--ç”ŸæˆåŠ¨æ€sql-->
 	@Override
 	public List<${entityName}> selectBySelective(${entityName} entity) {
 		return ${ibatisDaoVar}.selectBySelective(entity);
@@ -71,11 +71,11 @@ public class ${className} implements ${interfaceNameService}{
 	  @Override
 	 public int updateBy${method.methodNameSuffix}(${entityName} entity, <#list method.paramList?if_exists as param>${param.paramType} ${param.paramName}<#if param_has_next>, </#if></#list>) {
 	 	Map<String,Object> map = new HashMap<String, Object>();
-		<#--whereÌõ¼þ -->
+		<#--whereæ¡ä»¶ -->
 		<#list method.paramList?if_exists as param>
 		map.put("${param.paramName}",${param.paramName});//${param.paramExplain}
 		</#list>
-		<#--Èç¹û³öÏÖÔÚwhereÌõ¼þÖÐµÄ×Ö¶Î£¬²»ÄÜ³öÏÖÔÚ set ÖÐ -->
+		<#--å¦‚æžœå‡ºçŽ°åœ¨whereæ¡ä»¶ä¸­çš„å­—æ®µï¼Œä¸èƒ½å‡ºçŽ°åœ¨ set ä¸­ -->
 	 	<#list listMap?if_exists as columnMap>
 	 		<#assign isFilterParamColumn = "false" />
 	    	<#list method.paramList?if_exists as param>
@@ -108,7 +108,7 @@ public class ${className} implements ${interfaceNameService}{
 	 }
 	</#list>
 <#else>
-	<#--²»Éú³É¶¯Ì¬sql-->
+	<#--ä¸ç”ŸæˆåŠ¨æ€sql-->
 	<#list methodList?if_exists as method>
 	 /**
 	  * ${method.methodExplain}

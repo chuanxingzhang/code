@@ -13,62 +13,8 @@
   </resultMap>
 
   <sql id="Base_Column_List" >
-  	<#list listMap?if_exists as column>
-  		${column.COLUMN}<#if column_has_next>,</#if>
-  	</#list>
+  	<#list listMap?if_exists as column>${column.COLUMN}<#if column_has_next>,</#if></#list>
   </sql>
-<#if isCreateMoveSql>
-<#--Éú³É¶¯Ì¬sql-->
-  <select id="selectBySelective" parameterType="${ibatisEntityPackagePath}.${ibatisEntityName}" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from ${tableName}
-    <where>
-    <trim suffixOverrides=" and " >
-    <#list listMap?if_exists as column>
-    	<if test="${column.PROPERTY} != null" >
-        ${column.COLUMN} = ${jingHao}{${column.PROPERTY},jdbcType=${column.JDBCTYPE}}<#if column_has_next> and </#if>
-      	</if>
-    </#list>
-    </trim>
-    </where>
-     <if test="openGroupBy == 1" >
-	    group by
-    <trim suffixOverrides=", " >
-    <#list listMap?if_exists as column>
-    	<if test="${column.isGroupByColumn} ==1" >
-	    	${column.COLUMN}<#if column_has_next>, </#if>
-    	</if>
-    </#list>
-    </trim>
-    </if>
-    <if test="openOrderBy == 1" >
-	    order by
-    <trim suffixOverrides=", " >
-    <#list listMap?if_exists as column>
-    	<if test="${column.isOrderByColumn} == 1" >
-	    	${column.COLUMN} <if test="${column.isOrderByColumnDesc} == 1" >desc</if><#if column_has_next>, </#if>
-    	</if>
-    </#list>
-    </trim>
-    </if>
-    <if test="limitStart != null and limitEnd != null">
-    	limit ${jingHao}{limitStart},${jingHao}{limitEnd}
-    </if>
-  </select>
-
-  <select id="selectBySelectiveCount" parameterType="${ibatisEntityPackagePath}.${ibatisEntityName}" resultType="int">
-    select count(1) from ${tableName}
-    <where>
-    <trim suffixOverrides=" and " >
-    <#list listMap?if_exists as column>
-    	<if test="${column.PROPERTY} != null" >
-        ${column.COLUMN} = ${jingHao}{${column.PROPERTY},jdbcType=${column.JDBCTYPE}}<#if column_has_next> and </#if>
-      	</if>
-    </#list>
-    </trim>
-    </where>
-  </select>
 
   <insert id="insertSelective" parameterType="${ibatisEntityPackagePath}.${ibatisEntityName}" useGeneratedKeys="true" keyProperty="${primaryKeyColumn}" >
     insert into ${tableName}
@@ -100,7 +46,7 @@
     </#list>
     </trim>
   </delete>
-<#--¸ù¾ÝË÷Òý£¬Éú³É select update delete -->
+<#--æ ¹æ®ç´¢å¼•ï¼Œç”Ÿæˆ select update delete -->
 <#list methodList?if_exists as method>
   <select id="selectBy${method.methodNameSuffix}" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -117,19 +63,11 @@
     </#if>
   </select>
 
-  <select id="selectBy${method.methodNameSuffix}Count" parameterType="java.lang.String" resultType="int">
-    select count(1) from ${tableName}
-    where
-    <#list method.paramList?if_exists as param>
-        ${param.COLUMN} = ${jingHao}{${param.paramName},jdbcType=${param.JDBCTYPE}}<#if param_has_next> and </#if>
-    </#list>
-  </select>
-
   <update id="updateBy${method.methodNameSuffix}" parameterType="java.util.Map" >
     update ${tableName} set
     	<trim suffixOverrides="," >
     	<#list listMap?if_exists as column>
-    	<#--Èç¹û³öÏÖÔÚwhereÌõ¼þÖÐµÄ×Ö¶Î£¬²»ÄÜ³öÏÖÔÚ set ÖÐ -->
+    	<#--å¦‚æžœå‡ºçŽ°åœ¨whereæ¡ä»¶ä¸­çš„å­—æ®µï¼Œä¸èƒ½å‡ºçŽ°åœ¨ set ä¸­ -->
     	<#assign isFilterParamColumn = "true" />
     	<#if column.COLUMN?lower_case == "create_time" || column.COLUMN?lower_case == "createtime" || column.COLUMN?lower_case == "created_time" || column.COLUMN?lower_case == "createdtime">
     	<#assign isFilterParamColumn = "false" />
@@ -166,28 +104,28 @@
   </delete>
 </#list>
 
-<#else>
-<#--²»Éú³É¶¯Ì¬sql-->
-    <insert id="insertSelective" parameterType="${ibatisEntityPackagePath}.${ibatisEntityName}" useGeneratedKeys="true" keyProperty="${primaryKeyColumn}" >
-	    insert into ${tableName} (<include refid="Base_Column_List" />)
-	    values
-	    <trim prefix="(" suffix=")" suffixOverrides="," >
-	    	<#list listMap?if_exists as column>
-	        ${jingHao}{${column.PROPERTY},jdbcType=${column.JDBCTYPE}}<#if column_has_next>,</#if>
-	    	</#list>
-	    </trim>
-  </insert>
-	<#--²»Éú³É¶¯Ì¬sql-->
-	<#list methodList?if_exists as method>
-	<select id="selectBy${method.methodNameSuffix}" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from ${tableName}
-    where
-    <#list method.paramList?if_exists as param>
-        ${param.COLUMN} = ${jingHao}{${param.paramName},jdbcType=${param.JDBCTYPE}}<#if param_has_next> and </#if>
-    </#list>
-  </select>
-	</#list>
-</#if>
+    <sql id="listWhereOptions">
+        <where>
+            <#list listMap?if_exists as column>
+                <if test="${column.PROPERTY} != null" >
+            and ${column.COLUMN} = ${jingHao}{${column.PROPERTY},jdbcType=${column.JDBCTYPE}}
+                </if>
+            </#list>
+        </where>
+    </sql>
+
+<#--ç”ŸæˆåŠ¨æ€sql-->
+    <select id="selectBySelective" parameterType="java.util.Map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ${tableName}
+        <include refid="listWhereOptions"/>
+    </select>
+
+    <select id="selectBySelectiveCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+        select count(1) from ${tableName}
+        <include refid="listWhereOptions"/>
+    </select>
+
+
 </mapper>
