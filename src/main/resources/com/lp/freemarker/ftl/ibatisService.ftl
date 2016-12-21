@@ -13,7 +13,7 @@ public interface ${interfaceName} {
 	public int insertSelective(${entityName} entity);
 	
 	<#if isCreateMoveSql>
-	<#--生成动态sql-->
+	<#--鐢熸垚鍔ㄦ�乻ql-->
 	public List<${entityName}> selectBySelective(${entityName} entity);
 	
 	public int selectBySelectiveCount(${entityName} entity);
@@ -51,7 +51,7 @@ public interface ${interfaceName} {
 	
 	</#list>
 	<#else>
-	<#--不生成动态sql-->
+	<#--涓嶇敓鎴愬姩鎬乻ql-->
 	<#list methodList?if_exists as method>
 	 /**
 	  * ${method.methodExplain}
