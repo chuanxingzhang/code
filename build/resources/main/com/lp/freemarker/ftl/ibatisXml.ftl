@@ -48,7 +48,7 @@
   </delete>
 <#--根据索引，生成 select update delete -->
 <#list methodList?if_exists as method>
-  <select id="selectBy${method.methodNameSuffix}" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectBy${method.methodNameSuffix}" parameterType="${primaryKeyIbatisJavaType}" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from ${tableName}
@@ -95,7 +95,7 @@
     </#list>
   </update>
 
-  <delete id="deleteBy${method.methodNameSuffix}" parameterType="java.lang.String" >
+  <delete id="deleteBy${method.methodNameSuffix}" parameterType="${primaryKeyIbatisJavaType}" >
     delete from ${tableName}
     where
     <#list method.paramList?if_exists as param>

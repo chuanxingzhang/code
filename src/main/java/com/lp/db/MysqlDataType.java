@@ -9,82 +9,85 @@ public enum MysqlDataType {
 	/**
 	 * 
 	 */
-	BIGINT("bigint", "Long", "BIGINT"),
+	BIGINT("bigint", "Long", "BIGINT","java.lang.Long"),
 	/**
 	 * 
 	 */
-	BINARY("binary", "byte[]", "BINARY"),
+	BINARY("binary", "byte[]", "BINARY","java.lang.Byte"),
 	/**
 	 * 
 	 */
-	BIT("bit", "byte[]", "BIT"),
+	BIT("bit", "byte[]", "BIT","java.lang.Byte"),
 	/**
 	 * 
 	 */
-	BLOB("blob", "byte[]", "BLOB"),
+	BLOB("blob", "byte[]", "BLOB","java.lang.Byte"),
 	/**
 	 * 
 	 */
-	CHAR("char", "String", "CHAR"),
+	CHAR("char", "String", "CHAR","java.lang.String"),
+	/**
+	 *
+	 */
+	DATE("date", "Date", "DATE","java.util.Date"),
 	/**
 	 * 
 	 */
-	DATE("date", "Date", "DATE"),
+	DATETIME("datetime", "Date", "TIMESTAMP","java.util.Date"),
 	/**
 	 * 
 	 */
-	DATETIME("datetime", "Date", "TIMESTAMP"),
+	DECIMAL("decimal", "BigDecimal", "DECIMAL","java.math.BigDecimal"),
 	/**
 	 * 
 	 */
-	DECIMAL("decimal", "BigDecimal", "DECIMAL"),
+	DOUBLE("double", "Double", "DOUBLE","java.lang.Double"),
 	/**
 	 * 
 	 */
-	DOUBLE("double", "Double", "DOUBLE"),
+	FLOAT("float", "Float", "FLOAT","java.lang.Float"),
 	/**
 	 * 
 	 */
-	FLOAT("float", "Float", "FLOAT"),
+	INT("int", "Integer", "INTEGER","java.lang.Integer"),
 	/**
 	 * 
 	 */
-	INT("int", "Integer", "INTEGER"),
+	SMALLINT("smallint", "Short", "SMALLINT","java.lang.Short"),
 	/**
 	 * 
 	 */
-	SMALLINT("smallint", "Short", "SMALLINT"),
+	TEXT("text", "String", "LONGVARCHAR","java.lang.String"),
 	/**
 	 * 
 	 */
-	TEXT("text", "String", "LONGVARCHAR"),
+	TIME("time", "Date", "TIME","java.util.Date"),
 	/**
 	 * 
 	 */
-	TIME("time", "Date", "TIME"),
+	TIMESTAMP("timestamp", "Date", "TIMESTAMP","java.util.Date"),
 	/**
 	 * 
 	 */
-	TIMESTAMP("timestamp", "Date", "TIMESTAMP"),
+	TINYINT("tinyint", "Byte", "TINYINT","java.lang.Byte"),
 	/**
 	 * 
 	 */
-	TINYINT("tinyint", "Byte", "TINYINT"),
-	/**
-	 * 
-	 */
-	VARCHAR("varchar", "String", "VARCHAR");
+	VARCHAR("varchar", "String", "VARCHAR","java.lang.String");
 	
 	private String mySqlDataType;
 	
 	private String javaDataType;
 	
 	private String ibatisJdbcType;
+
+	private String primaryKeyIbatisJavaType;
 	
-	MysqlDataType(String mySqlDataType, String javaDataType, String ibatisJdbcType) {
+	MysqlDataType(String mySqlDataType, String javaDataType, String ibatisJdbcType,String primaryKeyIbatisJavaType) {
 		this.mySqlDataType = mySqlDataType;
 		this.javaDataType = javaDataType;
 		this.ibatisJdbcType = ibatisJdbcType;
+		this.primaryKeyIbatisJavaType=primaryKeyIbatisJavaType;
 	}
 
 	public String getMySqlDataType() {
@@ -99,6 +102,23 @@ public enum MysqlDataType {
 		return ibatisJdbcType;
 	}
 
-	
-	
+	public void setMySqlDataType(String mySqlDataType) {
+		this.mySqlDataType = mySqlDataType;
+	}
+
+	public void setJavaDataType(String javaDataType) {
+		this.javaDataType = javaDataType;
+	}
+
+	public void setIbatisJdbcType(String ibatisJdbcType) {
+		this.ibatisJdbcType = ibatisJdbcType;
+	}
+
+	public String getPrimaryKeyIbatisJavaType() {
+		return primaryKeyIbatisJavaType;
+	}
+
+	public void setPrimaryKeyIbatisJavaType(String primaryKeyIbatisJavaType) {
+		this.primaryKeyIbatisJavaType = primaryKeyIbatisJavaType;
+	}
 }
