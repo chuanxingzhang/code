@@ -42,7 +42,7 @@ public class CreateIbatisXmlFileUtil {
 		rootMap.put("tableName", tableName);
 		//
 		rootMap.put("ibatisDaoPackagePath", Config.daoPackage);
-		rootMap.put("ibatisDaoName", Config.entityName);
+		rootMap.put("ibatisDaoName", Config.entityName+"Mapper");
 		//
 		rootMap.put("ibatisEntityPackagePath",Config.entityPackage);
 		String ibatisEntityName = UtilLp.getIbatisEntityName(Config.entityName);
