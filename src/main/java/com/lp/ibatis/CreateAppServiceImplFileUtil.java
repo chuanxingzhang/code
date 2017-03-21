@@ -39,7 +39,7 @@ public class CreateAppServiceImplFileUtil {
 		rootMap.put("packagePath", Config.serviceImplPackage);//
 		rootMap.put("ibatisEntityPackage", Config.entityPackage);//
 		String entityName = Config.entityName;
-		String className = UtilLp.getAppServiceImplClassName(tableName);
+		String className = entityName+"ServiceImpl";
 		rootMap.put("className", className);//接口名称
 		rootMap.put("entityName", entityName);//实体名称
 		//
@@ -53,8 +53,24 @@ public class CreateAppServiceImplFileUtil {
 		//
 		rootMap.put("ibatisDaoVar", ibatisDaoName.subSequence(0, 1).toString().toLowerCase() + ibatisDaoName.substring(1));
 		//
+		rootMap.put("entityExplain",Config.entityExplain);
+		//
 		List<Map<String,Object>> methodList = CreateIbatisFile.getMethodList(tableInfo);
-		rootMap.put("methodList", methodList);
+		for(int i=0; i<tableInfo.size(); i++) {
+			TableColumnInfo columnInfo = tableInfo.get(i);
+			String columnName = columnInfo.getColumnName();
+			String dataType = columnInfo.getDataType();
+			String columnKey = columnInfo.getColumnKey();//表字段索引类型
+			if("PRI".equals(columnKey)) {//主键
+				//
+				String primaryKeyIbatisJdbcType = UtilLp.getFieldType(dataType).getIbatisJdbcType();
+				rootMap.put("primaryKeyColumn", columnName);
+				rootMap.put("primaryKeyProperty", UtilLp.columnNameToHumpStr(columnName));
+				rootMap.put("primaryKeyJavaType", UtilLp.getFieldType(dataType).getJavaDataType());
+				rootMap.put("primaryKeyExplain",columnInfo.getColumnComment());
+				break;
+			}
+		}
 		//import
 		rootMap.put("importList", CreateIbatisFile.getImportList(tableInfo));
 		//

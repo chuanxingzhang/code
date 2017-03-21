@@ -45,6 +45,7 @@ public class CreateIbatisDaoFileUtil {
 		String interfaceName = UtilLp.getIbatitsDaoClassName(entityName);
 		rootMap.put("interfaceName", interfaceName);//接口名称
 		rootMap.put("entityName", entityName);//实体名称
+		rootMap.put("entityExplain",Config.entityExplain);
 		//
 		for(int i=0; i<tableInfo.size(); i++) {
 			TableColumnInfo columnInfo = tableInfo.get(i);

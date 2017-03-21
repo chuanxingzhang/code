@@ -209,26 +209,5 @@ public class CreateIbatisFile {
 			listMap.add(xmlMap);
 		}
 		return listMap;
-
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

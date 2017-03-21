@@ -3,6 +3,7 @@ package com.lp.db;
 import com.lp.main.MainClass;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 /**
@@ -19,6 +20,7 @@ public class Config {
     public static String serviceImplPackage;
     public static String entityPackage;
     public static String entityName;
+    public static String entityExplain;
     public static String fileSavePath;
 
 
@@ -26,7 +28,7 @@ public class Config {
     static {
         Properties props = new Properties();
         try {
-            props.load(Config.class.getClassLoader().getResourceAsStream("jdbc.properties"));
+            props.load(new InputStreamReader(Config.class.getClassLoader().getResourceAsStream("jdbc.properties"), "UTF-8"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -41,5 +43,6 @@ public class Config {
         entityPackage =props.getProperty("entityPackage");
         entityName =props.getProperty("entityName");
         fileSavePath =props.getProperty("fileSavePath");
+        entityExplain=props.getProperty("entityExplain");
     }
 }

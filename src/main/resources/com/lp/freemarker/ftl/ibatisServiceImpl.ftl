@@ -10,117 +10,156 @@ import java.util.HashMap;
 import ${servicePackagePath}.${interfaceNameService};
 import ${ibatisEntityPackage}.${entityName};
 import ${ibatisDaoPackage}.${ibatisDaoName};
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Propagation;
 
-<#list importList?if_exists as importPackage>  
-import ${importPackage.importPackage};
-</#list>
-
+/**
+ * Created by chenqian on 2016/9/12.
+ */
 @Service
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class ${className} implements ${interfaceNameService}{
-	
-	@Autowired
-	private ${ibatisDaoName} ${ibatisDaoVar};
-	
-    @Override
-	public int insertSelective(${entityName} entity) {
-		return ${ibatisDaoVar}.insertSelective(entity);
-	}
 
-<#if isCreateMoveSql>
-	<#--生成动态sql-->
-	@Override
-	public List<${entityName}> selectBySelective(${entityName} entity) {
-		return ${ibatisDaoVar}.selectBySelective(entity);
-	}
+    /**
+     * LOGGER
+     */
+    private static final Logger LOGGER = LoggerFactory.getLogger(${className}.class);
+    /**
+     * ${ibatisDaoName}
+     */
+    @Resource
+    private ${ibatisDaoName} ${ibatisDaoVar};
 	
-	@Override
-	public int selectBySelectiveCount(${entityName} entity) {
-		return ${ibatisDaoVar}.selectBySelectiveCount(entity);
-	}
-    
+    /**
+     * 新增${entityExplain}.
+     *
+     * @param record 实体
+     * @return 主键
+     */
     @Override
-	public int deleteBySelective(${entityName} entity) {
-		return ${ibatisDaoVar}.deleteBySelective(entity);
-	}
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = Exception.class)
+    public int insertSelective(${entityName} record) {
+        try {
+            return ${ibatisDaoVar}.insertSelective(record);
+        } catch (Exception e) {
+            LOGGER.error("新增${entityExplain}:" + e);
+            throw new ProcessorException(ExceptionStatus.EX_1009, "数据新增异常");
+        }
+    }
 
-	<#list methodList?if_exists as method>
-	 /**
-	  * ${method.methodExplain}
-	  <#list method.paramList?if_exists as param>
-	  * @param ${param.paramName} ${param.paramExplain}
-	  </#list>
-	  * @return
-	  */
-	  @Override
-	 public <#if method.isIndexUnique == 1>List<${entityName}><#else>${entityName}</#if> selectBy${method.methodNameSuffix}(<#list method.paramList?if_exists as param>${param.paramType} ${param.paramName}<#if param_has_next>, </#if></#list>) {
-	 	return ${ibatisDaoVar}.selectBy${method.methodNameSuffix}(<#list method.paramList?if_exists as param>${param.paramName}<#if param_has_next>, </#if></#list>);
-	 }
-	 
-	 @Override
-	 public int selectBy${method.methodNameSuffix}Count(<#list method.paramList?if_exists as param>${param.paramType} ${param.paramName}<#if param_has_next>, </#if></#list>) {
-	 	return ${ibatisDaoVar}.selectBy${method.methodNameSuffix}Count(<#list method.paramList?if_exists as param>${param.paramName}<#if param_has_next>, </#if></#list>);
-	 }
-	
-	 /**
-	  * ${method.methodExplain}
-	  <#list method.paramList?if_exists as param>
-	  * @param ${param.paramName} ${param.paramExplain}
-	  </#list>
-	  * @return
-	  */
-	  @Override
-	 public int updateBy${method.methodNameSuffix}(${entityName} entity, <#list method.paramList?if_exists as param>${param.paramType} ${param.paramName}<#if param_has_next>, </#if></#list>) {
-	 	Map<String,Object> map = new HashMap<String, Object>();
-		<#--where条件 -->
-		<#list method.paramList?if_exists as param>
-		map.put("${param.paramName}",${param.paramName});//${param.paramExplain}
-		</#list>
-		<#--如果出现在where条件中的字段，不能出现在 set 中 -->
-	 	<#list listMap?if_exists as columnMap>
-	 		<#assign isFilterParamColumn = "false" />
-	    	<#list method.paramList?if_exists as param>
-	    		<#if param.COLUMN == columnMap.COLUMN>
-	    			<#assign isFilterParamColumn = "true" />
-	    		</#if>
-	    	</#list>
-	 		<#if isFilterParamColumn == "false">
-		 		<#if columnMap.COLUMN?lower_case == "create_time" || columnMap.COLUMN?lower_case == "createtime" || columnMap.COLUMN?lower_case == "created_time" || columnMap.COLUMN?lower_case == "createdtime">
-			    	<#elseif columnMap.COLUMN?lower_case == "update_time" || columnMap.COLUMN?lower_case == "updatetime" || columnMap.COLUMN?lower_case == "updated_time" || columnMap.COLUMN?lower_case == "updatedtime">
-			    	<#elseif columnMap.COLUMN?lower_case == "modified_time" || columnMap.COLUMN?lower_case == "modifiedtime">
-			    	<#else>
-	 	map.put("${columnMap.PROPERTY}", entity.get${columnMap.PROPERTY?cap_first}());//${columnMap.fieldExplain}
-	 			</#if>
-	 		</#if>
-	 	</#list>
-		return ${ibatisDaoVar}.updateBy${method.methodNameSuffix}(map);
-	 }
-	
-	 /**
-	  * ${method.methodExplain}
-	  <#list method.paramList?if_exists as param>
-	  * @param ${param.paramName} ${param.paramExplain}
-	  </#list>
-	  * @return
-	  */
-	  @Override
-	 public int deleteBy${method.methodNameSuffix}(<#list method.paramList?if_exists as param>${param.paramType} ${param.paramName}<#if param_has_next>, </#if></#list>) {
-		return ${ibatisDaoVar}.deleteBy${method.methodNameSuffix}(<#list method.paramList?if_exists as param>${param.paramName}<#if param_has_next>, </#if></#list>);
-	 }
-	</#list>
-<#else>
-	<#--不生成动态sql-->
-	<#list methodList?if_exists as method>
-	 /**
-	  * ${method.methodExplain}
-	  <#list method.paramList?if_exists as param>
-	  * @param ${param.paramName} ${param.paramExplain}
-	  </#list>
-	  * @return
-	  */
-	  @Override
-	 public <#if method.isIndexUnique == 1>List<${entityName}><#else>${entityName}</#if> selectBy${method.methodNameSuffix}(<#list method.paramList?if_exists as param>${param.paramType} ${param.paramName}<#if param_has_next>, </#if></#list>) {
-	 	return ${ibatisDaoVar}.selectBy${method.methodNameSuffix}(<#list method.paramList?if_exists as param>${param.paramName}<#if param_has_next>, </#if></#list>);
-	 }
-	</#list>
-</#if>
+    /**
+     * 根据主键返回${entityExplain}实体.
+     *
+     * @param ${primaryKeyColumn}  主键
+     * @return ${entityName}
+     */
+    @Override
+    public ${entityName} selectByPrimaryKey(${primaryKeyJavaType} ${primaryKeyColumn}) {
+        try {
+            return ${ibatisDaoVar}.selectByPrimaryKey(${primaryKeyColumn});
+        } catch (Exception e) {
+            LOGGER.error("查询${entityExplain}异常:" + e);
+            throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
+        }
+    }
+
+    /**
+     * 选择更新${entityExplain}.
+     *
+     * @param record  实体
+     * @return 更新状态
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = Exception.class)
+    public int updateByPrimaryKeySelective(${entityName} record)  {
+        try {
+            return ${ibatisDaoVar}.updateByPrimaryKeySelective(${primaryKeyColumn});
+        } catch (Exception e) {
+            LOGGER.error("更新${entityExplain}异常:" + e);
+            throw new ProcessorException(ExceptionStatus.EX_1009, "数据更新异常");
+        }
+    }
+
+    /**
+     * 全量更新${entityExplain}.
+     *
+     * @param record  实体
+     * @return 更新状态
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = Exception.class)
+    public int updateByPrimaryKey(${entityName} record)  {
+        try {
+            return ${ibatisDaoVar}.updateByPrimaryKey(${primaryKeyColumn});
+        } catch (Exception e) {
+            LOGGER.error("更新${entityExplain}异常:" + e);
+            throw new ProcessorException(ExceptionStatus.EX_1009, "数据更新异常");
+        }
+    }
+
+    /**
+     * 批量插入${entityExplain}.
+     *
+     * @param list 实体${entityExplain}列表
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = Exception.class)
+    public void insertBatch(List<${entityName}> list) {
+        try {
+            ${ibatisDaoVar}.insertBatch(list);
+        } catch (Exception e) {
+            LOGGER.error("插入${entityExplain}异常:" + e);
+            throw new ProcessorException(ExceptionStatus.EX_1009, "数据插入异常");
+        }
+    }
+
+    /**
+     * 根据主键删除数据.
+     *
+     * @param ${primaryKeyColumn}  主键
+     * @return 删除成功标志位
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = Exception.class)
+    public int deleteByPrimaryKey(${primaryKeyJavaType} ${primaryKeyColumn}) {
+        try {
+            return ${ibatisDaoVar}.deleteByPrimaryKey(${primaryKeyColumn});
+        } catch (Exception e) {
+            LOGGER.error("删除${entityExplain}异常:" + e);
+            throw new ProcessorException(ExceptionStatus.EX_1009, "数据删除异常");
+        }
+    }
+
+
+    /**
+     * 根据查询条件查询出列表.
+     *
+     * @param map  参数集合
+     * @return ${entityExplain}列表
+     */
+    @Override
+    public List<${entityName}> selectBySelective(Map map) {
+        try {
+            return ${ibatisDaoVar}.selectBySelective(${primaryKeyColumn});
+        } catch (Exception e) {
+            LOGGER.error("查询${entityExplain}异常:" + e);
+            throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
+        }
+    }
+
+    /**
+     * 根据查询条件查询出数据集合的条数.
+     *
+     * @param map  参数集合
+     * @return 条数
+     */
+    @Override
+    public Integer selectBySelectiveCount(Map map) {
+        try {
+            return ${ibatisDaoVar}.selectBySelectiveCount(${primaryKeyColumn});
+        } catch (Exception e) {
+            LOGGER.error("查询${entityExplain}异常:" + e);
+            throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
+        }
+    }
 }
