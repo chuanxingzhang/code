@@ -10,6 +10,13 @@ import java.util.HashMap;
 import ${servicePackagePath}.${interfaceNameService};
 import ${ibatisEntityPackage}.${entityName};
 import ${ibatisDaoPackage}.${ibatisDaoName};
+
+import com.ws.kislev.common.exception.ExceptionStatus;
+import com.ws.kislev.common.exception.ProcessorException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.annotation.Resource;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Propagation;
 
@@ -73,7 +80,7 @@ public class ${className} implements ${interfaceNameService}{
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = Exception.class)
     public int updateByPrimaryKeySelective(${entityName} record)  {
         try {
-            return ${ibatisDaoVar}.updateByPrimaryKeySelective(${primaryKeyColumn});
+            return ${ibatisDaoVar}.updateByPrimaryKeySelective(record);
         } catch (Exception e) {
             LOGGER.error("更新${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据更新异常");
@@ -90,7 +97,7 @@ public class ${className} implements ${interfaceNameService}{
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = Exception.class)
     public int updateByPrimaryKey(${entityName} record)  {
         try {
-            return ${ibatisDaoVar}.updateByPrimaryKey(${primaryKeyColumn});
+            return ${ibatisDaoVar}.updateByPrimaryKey(record);
         } catch (Exception e) {
             LOGGER.error("更新${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据更新异常");
@@ -140,7 +147,7 @@ public class ${className} implements ${interfaceNameService}{
     @Override
     public List<${entityName}> selectBySelective(Map map) {
         try {
-            return ${ibatisDaoVar}.selectBySelective(${primaryKeyColumn});
+            return ${ibatisDaoVar}.selectBySelective(map);
         } catch (Exception e) {
             LOGGER.error("查询${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
@@ -156,7 +163,7 @@ public class ${className} implements ${interfaceNameService}{
     @Override
     public Integer selectBySelectiveCount(Map map) {
         try {
-            return ${ibatisDaoVar}.selectBySelectiveCount(${primaryKeyColumn});
+            return ${ibatisDaoVar}.selectBySelectiveCount(map);
         } catch (Exception e) {
             LOGGER.error("查询${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");

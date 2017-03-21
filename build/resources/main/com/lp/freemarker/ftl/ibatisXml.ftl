@@ -75,7 +75,7 @@
         (<#list listMap?if_exists as column> ${column.COLUMN}<#if column_has_next>,</#if></#list>)
         values
         <foreach collection="list" item="item" index="index" separator=",">
-            (<#list listMap?if_exists as column> item.${column.COLUMN}<#if column_has_next>,</#if></#list>)
+            (<#list listMap?if_exists as column> ${jingHao}{item.${column.PROPERTY}}<#if column_has_next>,</#if></#list>)
         </foreach>
     </insert>
 

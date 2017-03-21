@@ -60,7 +60,7 @@ public class UtilLp {
 	 * @return
 	 */
 	public static String getIbatitsDaoClassName(String entityName) {
-		String interfaceName = entityName+"Dao";
+		String interfaceName = entityName+"Mapper";
 		return interfaceName;
 	}
 	
@@ -99,8 +99,8 @@ public class UtilLp {
 	 * @param tableName
 	 * @return
 	 */
-	public static String getIbatisEntityName(String tableName) {
-		String entityName = tableNameToHumpStr(tableName);
+	public static String getIbatisEntityName(String entityName) {
+//		String entityName = tableNameToHumpStr(tableName);
 //		String interfaceName = entityName+"Entity";
 		return entityName;
 	}

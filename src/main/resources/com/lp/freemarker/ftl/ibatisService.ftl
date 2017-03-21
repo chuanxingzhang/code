@@ -25,7 +25,7 @@ public interface ${interfaceName} {
 	 * @param ${primaryKeyColumn}  主键
 	 * @return ${entityName}
 	 */
-	${entityName} selectByPrimaryKey(@Param("${primaryKeyColumn}") ${primaryKeyJavaType} ${primaryKeyColumn});
+	${entityName} selectByPrimaryKey(${primaryKeyJavaType} ${primaryKeyColumn});
 
 	/**
      * 选择更新${entityExplain}.

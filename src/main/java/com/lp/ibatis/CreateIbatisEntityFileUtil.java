@@ -36,7 +36,7 @@ public class CreateIbatisEntityFileUtil {
 		//
 		Map<String, Object> rootMap = new HashMap<String, Object>();
 		rootMap.put("packagePath", Config.entityPackage);//
-		String className = UtilLp.getIbatisEntityName(Config.entityName);
+		String className = Config.entityName;
 		rootMap.put("className", className);//类名称
 		//实体类 属性
 		List<Map<String,String>> entityFieldList = new ArrayList<Map<String,String>>();
