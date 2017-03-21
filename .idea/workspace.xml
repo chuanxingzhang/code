@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24968b91-6c69-453e-aa4a-f4d98b8fcf1d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/lp/db/Config.class" afterPath="$PROJECT_DIR$/build/classes/main/com/lp/db/Config.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/lp/ibatis/CreateAppServiceFileUtil.class" afterPath="$PROJECT_DIR$/build/classes/main/com/lp/ibatis/CreateAppServiceFileUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/lp/ibatis/CreateAppServiceImplFileUtil.class" afterPath="$PROJECT_DIR$/build/classes/main/com/lp/ibatis/CreateAppServiceImplFileUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/lp/ibatis/CreateIbatisDaoFileUtil.class" afterPath="$PROJECT_DIR$/build/classes/main/com/lp/ibatis/CreateIbatisDaoFileUtil.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/com/lp/freemarker/ftl/ibatisDao.ftl" afterPath="$PROJECT_DIR$/build/resources/main/com/lp/freemarker/ftl/ibatisDao.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/com/lp/freemarker/ftl/ibatisService.ftl" afterPath="$PROJECT_DIR$/build/resources/main/com/lp/freemarker/ftl/ibatisService.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/com/lp/freemarker/ftl/ibatisServiceImpl.ftl" afterPath="$PROJECT_DIR$/build/resources/main/com/lp/freemarker/ftl/ibatisServiceImpl.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/jdbc.properties" afterPath="$PROJECT_DIR$/build/resources/main/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lp/db/Config.java" afterPath="$PROJECT_DIR$/src/main/java/com/lp/db/Config.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateAppServiceFileUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateAppServiceFileUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateAppServiceImplFileUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateAppServiceImplFileUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateIbatisDaoFileUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateIbatisDaoFileUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateIbatisFile.java" afterPath="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateIbatisFile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisDao.ftl" afterPath="$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisDao.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisService.ftl" afterPath="$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisService.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisServiceImpl.ftl" afterPath="$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisServiceImpl.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
-    </list>
+    <list default="true" id="24968b91-6c69-453e-aa4a-f4d98b8fcf1d" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -516,7 +497,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -545,8 +528,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -945,11 +926,12 @@
       <workItem from="1485159959159" duration="1865000" />
       <workItem from="1489974208938" duration="13393000" />
       <workItem from="1490074328121" duration="14000" />
+      <workItem from="1490074359900" duration="98000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28872000" />
+    <option name="totallyTimeSpent" value="28970000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -976,8 +958,8 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959327" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3192771" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35264665" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3185096" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3576538" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1223176" sideWeight="0.49509117" order="3" side_tool="false" content_ui="tabs" />
