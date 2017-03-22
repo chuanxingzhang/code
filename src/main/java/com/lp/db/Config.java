@@ -20,6 +20,7 @@ public class Config {
     public static String entityName;
     public static String entityExplain;
     public static String fileSavePath;
+    public static String tableName;
 
 
 
@@ -42,5 +43,6 @@ public class Config {
         entityName =props.getProperty("entityName");
         fileSavePath =props.getProperty("fileSavePath");
         entityExplain=props.getProperty("entityExplain");
+        tableName=props.getProperty("tableName");
     }
 }

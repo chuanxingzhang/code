@@ -1,5 +1,6 @@
 package com.lp.main;
 
+import com.lp.db.Config;
 import com.lp.ibatis.*;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public class MainClass {
     public static void  main(String args[]){
-        String tableName="kv_business_opportunity";
+        String tableName= Config.tableName;
         List<TableColumnInfo> tableInfo=CreateIbatisFile.getTableInfo(tableName);
         CreateIbatisXmlFileUtil.createIbatisXmlFile(tableInfo,tableName);
         CreateIbatisDaoFileUtil.createIbatisDaoFile(tableInfo,tableName);
