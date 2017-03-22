@@ -1,7 +1,5 @@
 package com.lp.db;
 
-import com.lp.main.MainClass;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Properties;
