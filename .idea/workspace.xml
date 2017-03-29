@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="24968b91-6c69-453e-aa4a-f4d98b8fcf1d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateIbatisXmlFileUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateIbatisXmlFileUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisServiceImpl.ftl" afterPath="$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisServiceImpl.ftl" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -147,20 +147,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ibatisServiceImpl.ftl" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ibatisServiceImpl.ftl" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisServiceImpl.ftl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="159" column="15" lean-forward="false" selection-start-line="159" selection-start-column="12" selection-end-line="159" selection-end-column="15" />
+            <state relative-caret-position="240">
+              <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateIbatisXmlFileUtil.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreateIbatisXmlFileUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateIbatisXmlFileUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
+            <state relative-caret-position="628">
               <caret line="72" column="69" lean-forward="false" selection-start-line="72" selection-start-column="69" selection-end-line="72" selection-end-column="69" />
               <folding />
             </state>
@@ -581,8 +581,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateIbatisDaoFileUtil.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisServiceImpl.ftl" />
         <option value="$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateIbatisXmlFileUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisServiceImpl.ftl" />
       </list>
     </option>
   </component>
@@ -1231,12 +1231,12 @@
       <workItem from="1490087779127" duration="1000" />
       <workItem from="1490147431110" duration="2772000" />
       <workItem from="1490234676397" duration="1311000" />
-      <workItem from="1490767919050" duration="1356000" />
+      <workItem from="1490767919050" duration="2135000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42432000" />
+    <option name="totallyTimeSpent" value="43211000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1259,7 +1259,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3180723" sideWeight="0.47424892" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3090129" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1710,14 +1710,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisServiceImpl.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="159" column="15" lean-forward="false" selection-start-line="159" selection-start-column="12" selection-end-line="159" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lp/db/Config.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1736,8 +1728,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lp/ibatis/CreateIbatisXmlFileUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
+        <state relative-caret-position="628">
           <caret line="72" column="69" lean-forward="false" selection-start-line="72" selection-start-column="69" selection-end-line="72" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/lp/freemarker/ftl/ibatisServiceImpl.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
           <folding />
         </state>
       </provider>

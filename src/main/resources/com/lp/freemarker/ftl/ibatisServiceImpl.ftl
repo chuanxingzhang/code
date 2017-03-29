@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Propagation;
 
 /**
- * Created by chenqian on 2016/9/12.
+ * Created by
  */
 @Service
 @Slf4j

@@ -1,8 +1,6 @@
 package ${packagePath};
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Map;
 import ${servicePackagePath}.${interfaceNameService};
@@ -19,7 +17,7 @@ import org.springframework.transaction.annotation.Propagation;
  * Created by chenqian on 2016/9/12.
  */
 @Service
-
+@Slf4j
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class ${className} implements ${interfaceNameService}{
 
