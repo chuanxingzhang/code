@@ -19,14 +19,14 @@ import org.springframework.transaction.annotation.Propagation;
 @Service
 @Slf4j
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-public class ${className} implements ${interfaceNameService}{
+public class ${className} implements ${interfaceNameService} {
 
     /**
      * ${ibatisDaoName}
      */
     @Resource
     private ${ibatisDaoName} ${ibatisDaoVar};
-	
+
     /**
      * 新增${entityExplain}.
      *

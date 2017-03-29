@@ -115,7 +115,8 @@ public class CreateIbatisEntityFileUtil {
 		}
 		rootMap.put("entityFieldList", entityFieldList);
 		rootMap.put("entityMethodList", entityMethodList);
-		//import
+        rootMap.put("entityExplain",Config.entityExplain);
+        //import
 		rootMap.put("importList", CreateIbatisFile.getImportList(tableInfo));
 		//
 		rootMap.put("isCreateMoveSql", true);
