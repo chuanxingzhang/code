@@ -5,17 +5,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
-
 import ${servicePackagePath}.${interfaceNameService};
 import ${ibatisEntityPackage}.${entityName};
 import ${ibatisDaoPackage}.${ibatisDaoName};
-
-import com.ws.kislev.common.exception.ExceptionStatus;
-import com.ws.kislev.common.exception.ProcessorException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import lombok.extern.slf4j.Slf4j;
+import com.ws.shavuot.common.exception.ExceptionStatus;
+import com.ws.shavuot.common.exception.ProcessorException;
 import javax.annotation.Resource;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Propagation;
@@ -24,13 +19,10 @@ import org.springframework.transaction.annotation.Propagation;
  * Created by chenqian on 2016/9/12.
  */
 @Service
+
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class ${className} implements ${interfaceNameService}{
 
-    /**
-     * LOGGER
-     */
-    private static final Logger LOGGER = LoggerFactory.getLogger(${className}.class);
     /**
      * ${ibatisDaoName}
      */
@@ -49,7 +41,7 @@ public class ${className} implements ${interfaceNameService}{
         try {
             return ${ibatisDaoVar}.insertSelective(record);
         } catch (Exception e) {
-            LOGGER.error("新增${entityExplain}:" + e);
+            log.error("新增${entityExplain}:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据新增异常");
         }
     }
@@ -65,7 +57,7 @@ public class ${className} implements ${interfaceNameService}{
         try {
             return ${ibatisDaoVar}.selectByPrimaryKey(${primaryKeyColumn});
         } catch (Exception e) {
-            LOGGER.error("查询${entityExplain}异常:" + e);
+            log.error("查询${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
         }
     }
@@ -82,7 +74,7 @@ public class ${className} implements ${interfaceNameService}{
         try {
             return ${ibatisDaoVar}.updateByPrimaryKeySelective(record);
         } catch (Exception e) {
-            LOGGER.error("更新${entityExplain}异常:" + e);
+            log.error("更新${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据更新异常");
         }
     }
@@ -99,7 +91,7 @@ public class ${className} implements ${interfaceNameService}{
         try {
             return ${ibatisDaoVar}.updateByPrimaryKey(record);
         } catch (Exception e) {
-            LOGGER.error("更新${entityExplain}异常:" + e);
+            log.error("更新${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据更新异常");
         }
     }
@@ -115,7 +107,7 @@ public class ${className} implements ${interfaceNameService}{
         try {
             ${ibatisDaoVar}.insertBatch(list);
         } catch (Exception e) {
-            LOGGER.error("插入${entityExplain}异常:" + e);
+            log.error("插入${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据插入异常");
         }
     }
@@ -132,7 +124,7 @@ public class ${className} implements ${interfaceNameService}{
         try {
             return ${ibatisDaoVar}.deleteByPrimaryKey(${primaryKeyColumn});
         } catch (Exception e) {
-            LOGGER.error("删除${entityExplain}异常:" + e);
+            log.error("删除${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据删除异常");
         }
     }
@@ -149,7 +141,7 @@ public class ${className} implements ${interfaceNameService}{
         try {
             return ${ibatisDaoVar}.selectBySelective(map);
         } catch (Exception e) {
-            LOGGER.error("查询${entityExplain}异常:" + e);
+            log.error("查询${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
         }
     }
@@ -165,7 +157,7 @@ public class ${className} implements ${interfaceNameService}{
         try {
             return ${ibatisDaoVar}.selectBySelectiveCount(map);
         } catch (Exception e) {
-            LOGGER.error("查询${entityExplain}异常:" + e);
+            log.error("查询${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
         }
     }
