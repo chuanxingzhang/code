@@ -70,7 +70,7 @@ public class CreateIbatisXmlFileUtil {
 		List<Map<String,Object>> methodList = CreateIbatisFile.getMethodList(tableInfo);
 		rootMap.put("methodList", methodList);//
 
-		FileUtil.writeIbatisFile(template, rootMap, UtilLp.getIbatitsDaoClassName(Config.entityName)+"Mapper.xml", Config.mapperPackage);//ibatisEntityName
+		FileUtil.writeIbatisFile(template, rootMap, Config.entityName+"Mapper.xml", Config.mapperPackage);//ibatisEntityName
 	}
 
 }
