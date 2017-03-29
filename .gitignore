@@ -1,58 +1,10 @@
-# maven ignore
-target/
-
-# gradle ignore
 .gradle/
-out/
 build/
-gradle
-
-# eclipse ignore
-.settings/
-.project
-.classpath
 classes/
-gradle/
-
-# idea ignore
-.idea/
-*.ipr
 *.iml
-*.iws
+.idea
+build
+.idea/*
 
-# temp ignore
-*.log*
-*.cache
-*.diff
-*.patch
-*.tmp
-*.swp
 
-# system ignore
-.DS_Store
-Thumbs.db
-hs_err_pid*
-
-# gradle module ignore
-code/*.ipr
-code/*.iml
-code/*.iws
-code/.DS_Store
-code/._.DS_Store
-code/target/
-code/*.swp
-code/build/
-code/.project
-code/gradle
-code/.classpath
-code/.settings
-code/*.log*
-code/hs_err_pid*
-code/classes/
-code/Thumbs.db
-code/logs/
-
-logs/
-gradlew
-gradlew.bat
 
