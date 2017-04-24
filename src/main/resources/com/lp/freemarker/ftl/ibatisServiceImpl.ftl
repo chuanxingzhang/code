@@ -47,13 +47,13 @@ public class ${className} implements ${interfaceNameService} {
     /**
      * 根据主键返回${entityExplain}实体.
      *
-     * @param ${primaryKeyColumn}  主键
+     * @param ${primaryKeyProperty}  主键
      * @return ${entityName}
      */
     @Override
-    public ${entityName} selectByPrimaryKey(${primaryKeyJavaType} ${primaryKeyColumn}) {
+    public ${entityName} selectByPrimaryKey(${primaryKeyJavaType} ${primaryKeyProperty}) {
         try {
-            return ${ibatisDaoVar}.selectByPrimaryKey(${primaryKeyColumn});
+            return ${ibatisDaoVar}.selectByPrimaryKey(${primaryKeyProperty});
         } catch (Exception e) {
             log.error("查询${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
@@ -113,14 +113,14 @@ public class ${className} implements ${interfaceNameService} {
     /**
      * 根据主键删除数据.
      *
-     * @param ${primaryKeyColumn}  主键
+     * @param ${primaryKeyProperty}  主键
      * @return 删除成功标志位
      */
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = Exception.class)
-    public int deleteByPrimaryKey(${primaryKeyJavaType} ${primaryKeyColumn}) {
+    public int deleteByPrimaryKey(${primaryKeyJavaType} ${primaryKeyProperty}) {
         try {
-            return ${ibatisDaoVar}.deleteByPrimaryKey(${primaryKeyColumn});
+            return ${ibatisDaoVar}.deleteByPrimaryKey(${primaryKeyProperty});
         } catch (Exception e) {
             log.error("删除${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据删除异常");

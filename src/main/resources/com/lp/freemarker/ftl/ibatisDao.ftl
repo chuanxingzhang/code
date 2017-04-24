@@ -22,10 +22,10 @@ public interface ${interfaceName} {
     /**
      * 根据主键返回${entityExplain}实体.
      *
-     * @param ${primaryKeyColumn}  主键
+     * @param ${primaryKeyProperty}  主键
      * @return ${entityName}
      */
-    ${entityName} selectByPrimaryKey(@Param("${primaryKeyColumn}") ${primaryKeyJavaType} ${primaryKeyColumn});
+    ${entityName} selectByPrimaryKey(@Param("${primaryKeyProperty}") ${primaryKeyJavaType} ${primaryKeyProperty});
 
     /**
      * 选择更新${entityExplain}.
@@ -53,10 +53,10 @@ public interface ${interfaceName} {
     /**
      * 根据主键删除数据.
      *
-     * @param ${primaryKeyColumn}  主键
+     * @param ${primaryKeyProperty}  主键
      * @return 删除成功标志位
      */
-    int deleteByPrimaryKey(${primaryKeyJavaType} ${primaryKeyColumn});
+    int deleteByPrimaryKey(${primaryKeyJavaType} ${primaryKeyProperty});
 
     /**
      * 根据查询条件查询出列表.

@@ -96,7 +96,7 @@ public class UtilLp {
 	
 	/**
 	 * 获取 ibatisEntity类名称
-	 * @param tableName
+	 * @param entityName
 	 * @return
 	 */
 	public static String getIbatisEntityName(String entityName) {
@@ -115,9 +115,9 @@ public class UtilLp {
 		if(tableName.indexOf("_") > -1) {//包含下划线
 			String[] sArray = tableName.toLowerCase().split("_");
 			for(int i=0; i<sArray.length; i++) {
-				if(sArray[i].equals(DbFile.singleton.getFileConfig().getDeleteStr())) {
-					continue;
-				}
+//				if(sArray[i].equals(DbFile.singleton.getFileConfig().getDeleteStr())) {
+//					continue;
+//				}
 				if(!ishaveDigit(sArray[i])) {
 					s.append(firstToUpperCase(sArray[i]));
 				}
