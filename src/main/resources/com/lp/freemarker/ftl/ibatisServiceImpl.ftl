@@ -1,5 +1,7 @@
 package ${packagePath};
 
+import com.github.pagehelper.PageHelper;
+import com.ws.shavuot.common.constants.Constants;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
@@ -142,6 +144,26 @@ public class ${className} implements ${interfaceNameService} {
             log.error("查询${entityExplain}异常:" + e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
         }
+    }
+
+    /**
+     * 根据查询条件查询出列表.
+     *
+     * @param map  参数集合
+     * @param pageIndex  开始页数
+     * @param pageSize  长度
+     * @return ${entityExplain}列表
+    */
+    @Override
+    public List<${entityName}> selectBySelective(Map map, Integer pageIndex, Integer pageSize) {
+       try {
+           PageHelper.startPage(pageIndex == null || pageIndex < 0 ? 1 : pageIndex, pageSize == null || pageSize < 1 ?
+                Constants.PAGESIZE_10 : pageSize);
+           return ${ibatisDaoVar}.selectBySelective(map);
+       } catch (Exception e) {
+           log.error("查询${entityExplain}异常:" + e);
+           throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
+       }
     }
 
     /**

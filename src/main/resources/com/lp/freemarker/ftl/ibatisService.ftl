@@ -67,6 +67,16 @@ public interface ${interfaceName} {
     List<${entityName}> selectBySelective(Map map);
 
     /**
+     * 根据查询条件查询出列表.
+     *
+     * @param map  参数集合
+     * @param pageIndex  开始页数
+     * @param pageSize  长度
+     * @return ${entityExplain}列表
+    */
+    List<${entityName}> selectBySelective(Map map, Integer pageIndex, Integer pageSize);
+
+    /**
      * 根据查询条件查询出数据集合的条数.
      *
      * @param map  参数集合
