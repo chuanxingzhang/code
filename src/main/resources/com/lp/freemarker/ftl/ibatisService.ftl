@@ -82,5 +82,5 @@ public interface ${interfaceName} {
      * @param map  参数集合
      * @return 条数
      */
-    Integer countBySelectiveCount(Map map);
+    Integer countBySelective(Map map);
 }

@@ -1,7 +1,7 @@
 package ${packagePath};
 
 import com.github.pagehelper.PageHelper;
-import com.ws.shavuot.common.constants.Constants;
+import com.ws.shavuot.common.constant.Constants;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
@@ -173,7 +173,7 @@ public class ${className} implements ${interfaceNameService} {
      * @return 条数
      */
     @Override
-    public Integer countBySelectiveCount(Map map) {
+    public Integer countBySelective(Map map) {
         try {
             return ${ibatisDaoVar}.selectBySelectiveCount(map);
         } catch (Exception e) {
