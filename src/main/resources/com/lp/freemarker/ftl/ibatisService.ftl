@@ -25,7 +25,7 @@ public interface ${interfaceName} {
      * @param ${primaryKeyProperty}  主键
      * @return ${entityName}
      */
-    ${entityName} selectByPrimaryKey(${primaryKeyJavaType} ${primaryKeyProperty});
+    ${entityName} getByPrimaryKey(${primaryKeyJavaType} ${primaryKeyProperty});
 
     /**
      * 选择更新${entityExplain}.
@@ -64,7 +64,7 @@ public interface ${interfaceName} {
      * @param map  参数集合
      * @return ${entityExplain}列表
      */
-    List<${entityName}> selectBySelective(Map map);
+    List<${entityName}> listBySelective(Map map);
 
     /**
      * 根据查询条件查询出列表.
@@ -74,7 +74,7 @@ public interface ${interfaceName} {
      * @param pageSize  长度
      * @return ${entityExplain}列表
     */
-    List<${entityName}> selectBySelective(Map map, Integer pageIndex, Integer pageSize);
+    List<${entityName}> listBySelective(Map map, Integer pageIndex, Integer pageSize);
 
     /**
      * 根据查询条件查询出数据集合的条数.
@@ -82,5 +82,5 @@ public interface ${interfaceName} {
      * @param map  参数集合
      * @return 条数
      */
-    Integer selectBySelectiveCount(Map map);
+    Integer countBySelectiveCount(Map map);
 }

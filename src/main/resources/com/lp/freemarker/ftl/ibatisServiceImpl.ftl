@@ -53,7 +53,7 @@ public class ${className} implements ${interfaceNameService} {
      * @return ${entityName}
      */
     @Override
-    public ${entityName} selectByPrimaryKey(${primaryKeyJavaType} ${primaryKeyProperty}) {
+    public ${entityName} getByPrimaryKey(${primaryKeyJavaType} ${primaryKeyProperty}) {
         try {
             return ${ibatisDaoVar}.selectByPrimaryKey(${primaryKeyProperty});
         } catch (Exception e) {
@@ -137,7 +137,7 @@ public class ${className} implements ${interfaceNameService} {
      * @return ${entityExplain}列表
      */
     @Override
-    public List<${entityName}> selectBySelective(Map map) {
+    public List<${entityName}> listBySelective(Map map) {
         try {
             return ${ibatisDaoVar}.selectBySelective(map);
         } catch (Exception e) {
@@ -155,7 +155,7 @@ public class ${className} implements ${interfaceNameService} {
      * @return ${entityExplain}列表
     */
     @Override
-    public List<${entityName}> selectBySelective(Map map, Integer pageIndex, Integer pageSize) {
+    public List<${entityName}> listBySelective(Map map, Integer pageIndex, Integer pageSize) {
        try {
            PageHelper.startPage(pageIndex == null || pageIndex < 0 ? 1 : pageIndex, pageSize == null || pageSize < 1 ?
                 Constants.PAGESIZE_10 : pageSize);
@@ -173,7 +173,7 @@ public class ${className} implements ${interfaceNameService} {
      * @return 条数
      */
     @Override
-    public Integer selectBySelectiveCount(Map map) {
+    public Integer countBySelectiveCount(Map map) {
         try {
             return ${ibatisDaoVar}.selectBySelectiveCount(map);
         } catch (Exception e) {
