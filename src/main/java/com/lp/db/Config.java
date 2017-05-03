@@ -21,7 +21,7 @@ public class Config {
     public static String entityExplain;
     public static String fileSavePath;
     public static String tableName;
-
+    public static Boolean isCheckVersion;
 
 
     static {
@@ -35,14 +35,15 @@ public class Config {
         userName = props.getProperty("userName");
         password = props.getProperty("password");
         databaseName = props.getProperty("databaseName");
-        daoPackage =props.getProperty("daoPackage");
-        mapperPackage =props.getProperty("mapperPackage");
-        servicePackage =props.getProperty("servicePackage");
-        serviceImplPackage =props.getProperty("serviceImplPackage");
-        entityPackage =props.getProperty("entityPackage");
-        entityName =props.getProperty("entityName");
-        fileSavePath =props.getProperty("fileSavePath");
-        entityExplain=props.getProperty("entityExplain");
-        tableName=props.getProperty("tableName");
+        daoPackage = props.getProperty("daoPackage");
+        mapperPackage = props.getProperty("mapperPackage");
+        servicePackage = props.getProperty("servicePackage");
+        serviceImplPackage = props.getProperty("serviceImplPackage");
+        entityPackage = props.getProperty("entityPackage");
+        entityName = props.getProperty("entityName");
+        fileSavePath = props.getProperty("fileSavePath");
+        entityExplain = props.getProperty("entityExplain");
+        tableName = props.getProperty("tableName");
+        isCheckVersion = Boolean.getBoolean(props.getProperty("isCheckVersion"));
     }
 }
