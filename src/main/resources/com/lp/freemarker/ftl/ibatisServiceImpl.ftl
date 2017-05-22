@@ -157,8 +157,8 @@ public class ${className} implements ${interfaceNameService} {
     @Override
     public List<${entityName}> listBySelective(Map map, Integer pageIndex, Integer pageSize) {
        try {
-           PageHelper.startPage(pageIndex == null || pageIndex < 0 ? 1 : pageIndex, pageSize == null || pageSize < 1 ?
-                Constants.PAGESIZE_10 : pageSize, false);
+            PageHelper.startPage(pageIndex == null || pageIndex < 0 ? 1 : pageIndex, pageSize == null
+                 || pageSize < 1 ? Constants.PAGESIZE_10 : pageSize, false);
            return ${ibatisDaoVar}.selectBySelective(map);
        } catch (Exception e) {
            log.error("查询${entityExplain}异常:" + e);
