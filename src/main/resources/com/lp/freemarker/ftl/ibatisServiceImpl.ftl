@@ -41,7 +41,7 @@ public class ${className} implements ${interfaceNameService} {
         try {
             return ${ibatisDaoVar}.insertSelective(record);
         } catch (Exception e) {
-            log.error("新增${entityExplain}:" + e);
+            log.error("新增${entityExplain}:" , e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据新增异常");
         }
     }
@@ -57,7 +57,7 @@ public class ${className} implements ${interfaceNameService} {
         try {
             return ${ibatisDaoVar}.selectByPrimaryKey(${primaryKeyProperty});
         } catch (Exception e) {
-            log.error("查询${entityExplain}异常:" + e);
+            log.error("查询${entityExplain}异常:" , e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
         }
     }
@@ -74,7 +74,7 @@ public class ${className} implements ${interfaceNameService} {
         try {
             return ${ibatisDaoVar}.updateByPrimaryKeySelective(record);
         } catch (Exception e) {
-            log.error("更新${entityExplain}异常:" + e);
+            log.error("更新${entityExplain}异常:" , e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据更新异常");
         }
     }
@@ -91,7 +91,7 @@ public class ${className} implements ${interfaceNameService} {
         try {
             return ${ibatisDaoVar}.updateByPrimaryKey(record);
         } catch (Exception e) {
-            log.error("更新${entityExplain}异常:" + e);
+            log.error("更新${entityExplain}异常:" , e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据更新异常");
         }
     }
@@ -107,7 +107,7 @@ public class ${className} implements ${interfaceNameService} {
         try {
             ${ibatisDaoVar}.insertBatch(list);
         } catch (Exception e) {
-            log.error("插入${entityExplain}异常:" + e);
+            log.error("插入${entityExplain}异常:" , e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据插入异常");
         }
     }
@@ -124,7 +124,7 @@ public class ${className} implements ${interfaceNameService} {
         try {
             return ${ibatisDaoVar}.deleteByPrimaryKey(${primaryKeyProperty});
         } catch (Exception e) {
-            log.error("删除${entityExplain}异常:" + e);
+            log.error("删除${entityExplain}异常:" , e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据删除异常");
         }
     }
@@ -141,7 +141,7 @@ public class ${className} implements ${interfaceNameService} {
         try {
             return ${ibatisDaoVar}.selectBySelective(map);
         } catch (Exception e) {
-            log.error("查询${entityExplain}异常:" + e);
+            log.error("查询${entityExplain}异常:" , e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
         }
     }
@@ -161,7 +161,7 @@ public class ${className} implements ${interfaceNameService} {
                  || pageSize < 1 ? Constants.PAGESIZE_10 : pageSize, false);
            return ${ibatisDaoVar}.selectBySelective(map);
        } catch (Exception e) {
-           log.error("查询${entityExplain}异常:" + e);
+           log.error("查询${entityExplain}异常:" , e);
            throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
        }
     }
@@ -177,7 +177,7 @@ public class ${className} implements ${interfaceNameService} {
         try {
             return ${ibatisDaoVar}.selectBySelectiveCount(map);
         } catch (Exception e) {
-            log.error("查询${entityExplain}异常:" + e);
+            log.error("查询${entityExplain}异常:" , e);
             throw new ProcessorException(ExceptionStatus.EX_1009, "数据查询异常");
         }
     }
