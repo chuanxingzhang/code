@@ -16,7 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Propagation;
 
 /**
- * Created by
+ * ${entityExplain}ServiceImpl.
+ * @author ${creator}
  */
 @Service
 @Slf4j

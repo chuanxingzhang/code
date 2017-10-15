@@ -5,8 +5,10 @@ import lombok.Data;
 import ${importPackage.importPackage};
 </#list>
 /**
-* ${entityExplain}.
-*/
+ * ${entityExplain}.
+ *
+ * @author ${creator}
+ */
 @Data
 public class ${className} {
 

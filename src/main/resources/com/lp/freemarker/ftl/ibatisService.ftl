@@ -7,8 +7,10 @@ import java.util.Map;
 
 
 /**
-* ${entityExplain}Service.
-*/
+ * ${entityExplain}Service.
+ *
+ * @author ${creator}
+ */
 public interface ${interfaceName} {
 
     /**

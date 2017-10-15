@@ -4,6 +4,7 @@ package com.lp.ibatis;
 import com.lp.db.Config;
 import com.lp.db.DbFile;
 import com.lp.freemarker.ftl.TemplatePath;
+import com.lp.util.Computer;
 import com.lp.util.FileUtil;
 import com.lp.util.UtilLp;
 import freemarker.cache.ClassTemplateLoader;
@@ -78,8 +79,9 @@ public class CreateAppServiceImplFileUtil {
 		rootMap.put("listMap", listMap);
 		//
 		rootMap.put("isCreateMoveSql", true);
-		
-		FileUtil.writeIbatisFile(template, rootMap, className+".java", Config.serviceImplPackage);//entityName
+        rootMap.put("creator", Computer.getCurrentRunningServerComputerName());
+
+        FileUtil.writeIbatisFile(template, rootMap, className+".java", Config.serviceImplPackage);//entityName
 	}
 	
 }

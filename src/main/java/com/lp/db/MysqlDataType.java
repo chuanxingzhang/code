@@ -72,7 +72,7 @@ public enum MysqlDataType {
     /**
      *
      */
-    TINYINT("tinyint", "Byte", "TINYINT", "java.lang.Byte"),
+    TINYINT("tinyint", "Boolean", "TINYINT", "java.lang.Boolean"),
     /**
      *
      */

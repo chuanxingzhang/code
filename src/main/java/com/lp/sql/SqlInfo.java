@@ -22,6 +22,9 @@ public class SqlInfo {
             for (int i = 1; i <= columnCount; i++) {
                 String columnType = rsmd.getColumnTypeName(i);
                 String columnName = rsmd.getColumnName(i);
+                if(columnType.contains(" ")){
+                    columnType=columnType.substring(0,columnType.indexOf(" "));
+                }
                 MysqlDataType mysqlDataType = UtilLp.getFieldType(columnType);
                 String javaType = mysqlDataType.getJavaDataType();
                 String javaEntityName = UtilLp.columnNameToHumpStr(columnName);

@@ -8,8 +8,9 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 /**
-* ${entityExplain}Dao.
-*/
+ * ${entityExplain}Dao.
+ * @author ${creator}
+ */
 public interface ${interfaceName} {
     /**
      * 新增${entityExplain}.
