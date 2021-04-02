@@ -1,7 +1,7 @@
 package ${packagePath};
 
 import com.github.pagehelper.PageHelper;
-import com.ws.shavuot.common.constant.Constants;
+import com.le.common.constant.Constants;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
@@ -9,8 +9,8 @@ import ${servicePackagePath}.${interfaceNameService};
 import ${ibatisEntityPackage}.${entityName};
 import ${ibatisDaoPackage}.${ibatisDaoName};
 import lombok.extern.slf4j.Slf4j;
-import com.ws.shavuot.common.exception.ExceptionStatus;
-import com.ws.shavuot.common.exception.ProcessorException;
+import com.le.common.exception.ExceptionStatus;
+import com.le.common.exception.ProcessorException;
 import javax.annotation.Resource;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Propagation;
